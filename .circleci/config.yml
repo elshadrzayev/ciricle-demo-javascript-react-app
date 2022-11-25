@@ -1,0 +1,16 @@
+version: 2.1
+
+workflows:
+  test-deploy:
+    jos:
+      - test
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:19.1.0
+    steps:
+      - checkout
+      - run:
+          name: 'check node version'
+          command: node --version
